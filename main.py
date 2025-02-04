@@ -69,14 +69,14 @@ class WeatherApp(QWidget):
     def get_weather(self):
 
 
-        api_key = "85147825bf111e03cae839920a6045af"
+        api_key = "05bf8270d1a0a59e7c2c66d41ae7cc20"
         city = self.city_input.text()
-        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}}"
 
         try:
             response = requests.get(url)
             response.raise_for_status()
-            data = responses.json()
+            data = response.json()
 
             if data["cod"] == 200:
                 self.display_weather(data)
